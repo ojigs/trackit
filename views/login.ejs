@@ -23,7 +23,7 @@
 
 </head>
 <body>
-    <%- include('partials/addin.ejs') %>
+    
     <div class="container pt-3 col-lg-6">
         <% if (locals.messages.errors) { %>
             <% messages.errors.forEach( el => { %>
@@ -59,6 +59,7 @@
         </form>
   
     </div>
+    <%- include('partials/addin.ejs') %>
     
 </body>
 </html>
