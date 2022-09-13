@@ -9,6 +9,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <link rel="stylesheet" href="css/style.css">
+
     <title><%- title %></title>
 
     <style>
@@ -27,33 +29,36 @@
         <%- include('partials/addin.ejs') %>
     
         <h1 class="text-center">Todos</h1>
-        <ul>
-        <% todos.forEach( el => { %>
-                <li class='todoItem' data-id='<%=el._id%>'>
-                    <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-                    <span class='del'> Delete </span>
-                </li>
-        <% }) %>    
-        </ul>
-    
-        <h2 class="text-center"><%= user.userName[0].toUpperCase() + user.userName.substring(1) %> has <%= left %> things left to do.</h2>
     
         <form action="/todos/createTodo" method="POST">
             <div class="form-group mt-5 row">
-                <label for="todo-item" class="col-sm-2 col-form-label">Create Todo:</label>
-                <div class="col-sm-10">
+                <!-- <label for="todo-item" class="col-sm-2 col-form-label">Create Todo:</label> -->
+                <div class="">
                     <input type="text" name="todoItem" class="form-control" id="todo-item" placeholder="Enter Todo Item">
                 </div>   
             </div>
-    
             <div class="mt-4 d-flex justify-content-center">
                 <input type="submit" class="btn btn-danger" value="Create Todo">
             </div>
         </form>
+
+        <h3 class="text-center mt-5"><%= user.userName[0].toUpperCase() + user.userName.substring(1) %> has <%= left %> things left to do.</h3>
+
+        <ul>
+            <% todos.forEach( el => { %>
+                    <li class='todoItem' data-id='<%=el._id%>'>
+                        <i class="fa-solid fa-list"></i>
+                        <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                        <span class='del'> Delete </span>
+                    </li>
+            <% }) %>    
+            </ul>
     
         <div class="mt-4 d-flex justify-content-center">
             <a href="/logout" class="btn btn-danger">Logout</a>
         </div>
     </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

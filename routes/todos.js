@@ -7,4 +7,6 @@ router.get('/', ensureAuth, todosContoller.getTodos)
 
 router.post('/createTodo', todosContoller.createTodo)
 
+router.delete('/deleteTodo', todosContoller.deleteTodo)
+
 module.exports = router
