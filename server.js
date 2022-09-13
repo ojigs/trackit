@@ -27,7 +27,7 @@ app.use(
      secret: 'keyboard cat',
      resave: false,
      saveUninitialized: false,
-     cookie: { sameSite: 'none', secure: true},
+    //  cookie: { sameSite: 'strict', secure: true},
      store: MongoStore.create({ client: mongoose.connection.getClient() }),
     })
 )

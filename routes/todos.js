@@ -5,4 +5,6 @@ const { ensureAuth } = require('../middleware/auth')
 
 router.get('/', ensureAuth, todosContoller.getTodos)
 
+router.post('/createTodo', todosContoller.createTodo)
+
 module.exports = router

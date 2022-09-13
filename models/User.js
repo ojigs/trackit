@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
-const connectDB = require('../config/database')
 
 const UserSchema = new mongoose.Schema({
     userName: {
@@ -17,9 +16,9 @@ const UserSchema = new mongoose.Schema({
 })
 
 //Hash password with bcrypt
-UserSchema.pre('save', function (save) {
+UserSchema.pre('save', function save(next) {
     const user = this
-    if (!user.isModified) {
+    if (!user.isModified('password')) {
         return next()
     }
     bcrypt.genSalt(10,  (err, salt) => {

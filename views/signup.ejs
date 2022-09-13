@@ -62,7 +62,7 @@
             <div class="form-group mt-4 row">
                 <label for="confirm-password" class="col-sm-2 col-form-label">Confirm Password:</label>
                 <div class="col-sm-10">
-                    <input type="password" name="password" class="form-control" id="confirm-password" placeholder="Confirm password">
+                    <input type="password" name="confirmPassword" class="form-control" id="confirm-password" placeholder="Confirm password">
                 </div>
             </div>
             
@@ -70,21 +70,9 @@
                 <button type="submit" class="btn btn-danger">Sign up</button>
             </div>
         </form>
+
+        <%- include('partials/addin.ejs') %>
   
     </div>
-
-    <%- include('partials/addin.ejs') %>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
-    </form>
 </body>
 </html>
