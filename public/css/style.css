@@ -21,10 +21,13 @@ li {
     padding: 10px;
     margin-bottom: 5px;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .del {
-    float: right;
-    cursor: pointer;
-    background-color: red;
+    /* cursor: pointer; */
+    /* background-color: red; */
+    margin-left: auto;
 }

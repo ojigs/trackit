@@ -10,7 +10,7 @@ function setBg(e) {
         el.style.backgroundColor = '#' + randomColor
     })
 }
-setBg(todo)
+// setBg(todo)
 
 //Add event listener to delete button
 Array.from(deleteBtn).forEach(btn => {
@@ -31,7 +31,7 @@ Array.from(todoComplete).forEach(el => {
 //Handle delete
 async function deleteTodo() {
     console.log('clicked')
-    const todoId = this.parentNode.dataset.id
+    const todoId = this.parentNode.parentNode.dataset.id
     console.log(todoId)
     try {
         const response = await fetch('todos/deleteTodo', {
