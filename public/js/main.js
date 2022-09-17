@@ -19,12 +19,12 @@ Array.from(deleteBtn).forEach(btn => {
 
 //Add event listener to not-completed todo
 Array.from(todoItem).forEach(el => {
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', markComplete)
 })
 
 //Add event listener to completed todo
 Array.from(todoComplete).forEach(el => {
-    el.addEventListener('click', deleteTodo)
+    el.addEventListener('click', markIncomplete)
 })
 
 
@@ -37,6 +37,42 @@ async function deleteTodo() {
         const response = await fetch('todos/deleteTodo', {
             method: 'delete',
             headers: {'Content-type': 'application/json'},
+            body: JSON.stringify({
+                'todoIdFromJSFile': todoId
+            })
+        })
+        const data = await response.json()
+        console.log(data)
+        location.reload()
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function markComplete() {
+    try {
+        const todoId = this.parentNode.parentNode.dataset.id
+	    const response = await fetch('todos/markComplete', {
+	        method: 'put',
+	        headers: { 'Content-type': 'application/json' },
+	        body: JSON.stringify({
+	            'todoIdFromJSFile': todoId
+	        })
+	    })
+	    const data = await response.json()
+	    console.log(data)
+	    location.reload()
+    } catch (error) {
+        console.log(error)   
+    }
+}
+
+async function markIncomplete() {
+    try {
+        const todoId = this.parentNode.parentNode.dataset.id
+        const response = await fetch('todos/markIncomplete', {
+            method: 'put',
+            headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({
                 'todoIdFromJSFile': todoId
             })

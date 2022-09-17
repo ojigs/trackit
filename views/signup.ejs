@@ -29,13 +29,8 @@
                 <div class="alert alert-danger"><%= el.msg %></div>
             <% }) %>    
         <% } %>
-        <% if (locals.messages.info) { %>
-            <% messages.info.forEach( el => { %>
-                <div class="alert alert-danger"><%= el.msg %></div>
-            <% }) %>    
-        <% } %>
 
-        <h1 class="fw-bold">Login to Your Account</h1>
+        <h1 class="fw-bold text-center">Sign Up</h1>
 
         <form action="/signup" method="POST">
             <div class="form-group mt-5 row">

@@ -36,7 +36,6 @@
     
         <form action="/todos/createTodo" method="POST">
             <div class="form-group mt-5 row">
-                <!-- <label for="todo-item" class="col-sm-2 col-form-label">Create Todo:</label> -->
                 <div class="input-group">
                     <span class="input-group-text" id=""><i class="fa-solid fa-clipboard-list"></i></span>
                     <input type="text" name="todoItem" class="form-control" id="todo-item" placeholder="Enter Todo Item">
@@ -54,14 +53,12 @@
                     <li class='todoItem bg-dark' data-id='<%=el._id%>'>
                         <div class="d-flex align-items-center gap-3">
                             <i class="fa-solid fa-list"></i>
-                            <span class=' mx-3 <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
+                            <span class='mx-3 <%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
                         </div>
                         <div class="d-flex align-items-center gap-3">
-                            <span class="complete btn btn-success"><i class="fa-solid fa-check"></i></span>
+                            <span class="complete btn btn-success <%= el.completed === true ? 'completed' : 'not'%>" title="Mark <%= el.completed === true ? 'Not Completed' : 'Completed'%>"><i class="fa-solid fa-check"></i></span>
                             <button class='btn btn-danger del'> <i class="fa-solid fa-trash"></i></button>    
                         </div>
-                        <!-- <span class="complete"><i class="fa-solid fa-check"></i></span>
-                        <button class='btn btn-danger red del'> <i class="fa-solid fa-trash"></i></button> -->
                     </li>
             <% }) %>    
             </ul>

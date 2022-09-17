@@ -9,4 +9,8 @@ router.post('/createTodo', todosContoller.createTodo)
 
 router.delete('/deleteTodo', todosContoller.deleteTodo)
 
+router.put('/markComplete', todosContoller.markComplete)
+
+router.put('/markIncomplete', todosContoller.markIncomplete)
+
 module.exports = router
