@@ -30,7 +30,7 @@ app.use(
      resave: false,
      saveUninitialized: false,
     //  cookie: { sameSite: 'strict', secure: true},
-     store: MongoStore.create({ mongoUrl: process.env.DB_STRING }),
+     store: MongoStore.create({ client: mongoose.connection.getClient(), dbName: 'dup-mvc' }),
     })
 )
 
